@@ -25,6 +25,7 @@ class CfgFunctions {
     class Requests {
 			file = "\life_server\Functions\DB\Requests";
       class fetchPlayer {};
+      class insertPlayer {};
     };
 	};
 };

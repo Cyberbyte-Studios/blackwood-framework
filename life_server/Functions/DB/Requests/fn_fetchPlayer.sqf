@@ -2,7 +2,7 @@ private ["_uid", "_query", "_result", "_curTime"];
 _uid = [_this,0,"",[""]] call BIS_fnc_param;
 _ownerID = [_this,1,"",[""]] call BIS_fnc_param;
 
-_query = format["SELECT name, cash, bank, gear, licenses, arrested, copLvl, medicLvl, adminLvl, donorLvl"];
+_query = format["SELECT pid, name, cash, bank, gear, licenses, arrested, copLvl, medicLvl, adminLvl, donorLvl"];
 
 _curTime = diag_tickTime;
 _result = [_query,2] call DB_fnc_asyncCall;
