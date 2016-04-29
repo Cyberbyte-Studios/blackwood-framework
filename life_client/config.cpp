@@ -13,8 +13,12 @@ class CfgFunctions {
 	class CyberByte {
 		tag = "CB";
 		class Player {
-			file = "\life_client\Functions\player";
+			file = "\life_client\Functions\Player";
 			class player {};
+		};
+    class UI {
+			file = "\life_client\Functions\UI";
+			class notification {};
 		};
 	};
 };

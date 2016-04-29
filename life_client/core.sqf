@@ -43,3 +43,4 @@ publicVariable "CB_Function";
 publicVariable "CB_MessageSystem";
 
 publicVariable "CB_fnc_player";
+publicVariable "CB_fnc_notification";
