@@ -15,6 +15,9 @@ waitUntil{(life_server_isReady OR !isNil "server_extDB_Error")};
 sleep 2;
 
 [] call CB_fetchPlayer;
+waitUntil {session_done};
+["Session Done", CB_Red] call CB_MessageSystem;
+
 
 diag_log "====================================================";
 diag_log "=============== CLIENT INIT COMPLETE ===============";
