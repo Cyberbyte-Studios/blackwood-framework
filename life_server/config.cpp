@@ -13,7 +13,7 @@ class CfgFunctions {
 	class Database {
 		tag = "DB";
 		class MySQL {
-			file = "\life_server\Functions\DB\Core";
+			file = "\life_server\Server\Functions\DB\Core";
 			class numberSafe {};
 		  class mresArray {};
 			class asyncCall{};
@@ -23,9 +23,27 @@ class CfgFunctions {
 		};
 
     class Requests {
-			file = "\life_server\Functions\DB\Requests";
+			file = "\life_server\Server\Functions\DB\Requests";
       class fetchPlayer {};
       class insertPlayer {};
     };
 	};
+
+  class CyberByte {
+    tag = "CB";
+    class Core {
+      file = "\life_server\Client\Functions\Core";
+      class init {};
+    };
+
+    class Player {
+      file = "\life_server\Client\Functions\Player";
+      class player {};
+    };
+
+    class UI {
+      file = "\life_server\Client\Functions\UI";
+      class notification {};
+    };
+  };
 };

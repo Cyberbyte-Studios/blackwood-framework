@@ -14,7 +14,7 @@ if(isNil {uiNamespace getVariable "server_sql_id"}) then {
 		try {
 		_result = EXTDB format["9:ADD_DATABASE:%1",'ArmaLife'];
 		if(!(EQUAL(_result,"[1]"))) then {throw "extDB2: Error with Database Connection"};
-		_result = EXTDB format["9:ADD_DATABASE_PROTOCOL:%2:SQL_RAW_V2:%1:ADD_QUOTES",call server_sql_id,EXTDB_SETTING(getText,"DatabaseName")];
+		_result = EXTDB format["9:ADD_DATABASE_PROTOCOL:%2:SQL_RAW_V2:%1:ADD_QUOTES",call server_sql_id,'ArmaLife'];
 		if(!(EQUAL(_result,"[1]"))) then {throw "extDB2: Error with Database Connection"};
 	} catch {
 		diag_log _exception;
@@ -31,3 +31,8 @@ if(isNil {uiNamespace getVariable "server_sql_id"}) then {
 };
 
 if(server_extDB_Error isEqualType []) exitWith {};
+
+[] call compile PreProcessFileLineNumbers "\life_client\core.sqf";
+
+server_isReady = true;
+publicVariable "server_isReady";
