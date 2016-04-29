@@ -10,8 +10,9 @@ diag_log "===================================================";
 
 diag_log "::Life Client:: Waiting for the server to be ready..";
 waitUntil{!isNil "server_isReady"};
-waitUntil{(life_server_isReady OR !isNil "server_extDB_Error")};
+waitUntil{(server_isReady OR !isNil "server_extDB_Error")};
 ["Server is Initialised", CB_Red] call CB_MessageSystem;
+session_done = false;
 
 [] call CB_fetchPlayer;
 waitUntil {session_done};

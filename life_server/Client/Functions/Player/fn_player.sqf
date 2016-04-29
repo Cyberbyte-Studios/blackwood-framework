@@ -5,7 +5,7 @@ CB_insertPlayer = {
 };
 
 CB_fetchPlayer = {
-  [getPlayerUID player,owner player] remoteExec ["DB_fnc_fetchPlayer", 2];
+  [getPlayerUID player, player] remoteExec ["DB_fnc_fetchPlayer", 2];
 };
 
 CB_loadPlayer = {

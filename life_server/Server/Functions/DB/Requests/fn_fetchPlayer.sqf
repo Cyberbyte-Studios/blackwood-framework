@@ -1,8 +1,11 @@
 private ["_uid", "_query", "_result", "_curTime", "_tmp"];
 _uid = [_this,0,"",[""]] call BIS_fnc_param;
-_ownerID = [_this,1,"",[""]] call BIS_fnc_param;
+_ownerID = [_this,1,ObjNull,[ObjNull]] call BIS_fnc_param;
+if(isNull _ownerID) exitWith {diag_log "DUCKS ARE NULL";};
+_ownerID = owner _ownerID;
+
 										//    0,    1,    2,    3,    4,     5,        6,        7,     8,        9,        10,       11
-_query = format["SELECT pid, name, cash, bank, gear, vgear, licenses, arrested, coplevel, mediclevel, adminlevel, donorlevel FROM players WHERE playerid='%1'", _uid];
+_query = format["SELECT pid, name, cash, bank, gear, vgear, licenses, arrested, coplevel, mediclevel, adminlevel, donorlevel FROM players WHERE pid='%1'", _uid];
 
 _curTime = diag_tickTime;
 _result = [_query,2] call DB_fnc_asyncCall;
