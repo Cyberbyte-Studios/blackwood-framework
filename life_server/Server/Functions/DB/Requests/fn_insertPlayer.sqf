@@ -1,4 +1,4 @@
-private["_queryResult","_query"];
+private["_queryResult", "_query", "_tickTime"];
 params [
 	"_uid",
 	"_name",
