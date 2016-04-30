@@ -5,3 +5,5 @@ CB_Blue = "#0033CC";
 CB_Yellow = "#e0e72e";
 CB_Black = "#303030";
 CB_Green = "#009933";
+player_hunger = 100;
+player_thirst = 100;

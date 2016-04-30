@@ -1,0 +1,8 @@
+disableChannels[]={0,1,2};
+disabledAI=1;
+
+#include "diag\handler.hpp"
+
+class RscTitles {
+	#include "diag\hud.hpp"
+};

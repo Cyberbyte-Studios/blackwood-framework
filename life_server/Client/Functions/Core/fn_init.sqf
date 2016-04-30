@@ -1,3 +1,5 @@
+#define UIctrl(ctrl) ((GVAR_UINS ["playerHUD",displayNull]) displayCtrl ctrl)
+
 //LOAD FUNCTIONS HERE
 [] call CB_fnc_Player;
 [] call CB_fnc_initVar;
@@ -17,6 +19,13 @@ session_done = false;
 [] call CB_fetchPlayer;
 waitUntil {session_done};
 ["Session Done", CB_Red] call CB_MessageSystem;
+
+2 cutRsc ["playerHUD","PLAIN"];
+_display = uiNamespace getVariable ["playerHUD",displayNull];
+
+_display displayCtrl 2200 progressSetPosition (1 / (100 / player_hunger));
+_display displayCtrl 2201 progressSetPosition (1 - (damage player));
+_display displayCtrl 2202 progressSetPosition (1 / (100 / player_thirst));
 
 diag_log "====================================================";
 diag_log "=============== CLIENT INIT COMPLETE ===============";

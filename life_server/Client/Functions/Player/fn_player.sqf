@@ -26,7 +26,6 @@ CB_loadPlayer = {
   session_done = true;
 
   0 cutText ["","BLACK IN"];
-
   player setPos (getMarkerPos "player_spawn");
 };
 
@@ -73,6 +72,9 @@ CB_loadGear = {
     _backpack = _gear select 2;
     _goggles = _gear select 3;
     _headgear = _gear select 4;
+    _assignedItems = _gear select 5;
+    _prim = _gear select 6;
+    _seco = _gear select 7;
     _uniformItems = _gear select 8;
     _uniformMags = _gear select 9;
     _bagItems = _gear select 10;
@@ -114,6 +116,14 @@ CB_loadGear = {
     {(vestContainer player) addItemCargoGlobal [_x,1];} forEach (_vestMags);
     {player addItemToBackpack _x;} forEach (_bagItems);
     {(backpackContainer player) addItemCargoGlobal [_x,1];} forEach (_bagMags);
+
+    if (!(_prim isEqualTo "")) then {
+      player addWeapon _prim;
+    };
+
+    if (!(_seco isEqualTo "")) then {
+      player addWeapon _seco;
+    };
 
     {
         if (!(_x isEqualTo "")) then {
