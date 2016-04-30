@@ -10,7 +10,7 @@ CB_fetchPlayer = {
 
 CB_loadPlayer = {
   session_done = false;
-  0 cutText ["GOT DATA............","BLACK FADED"];
+  0 cutText ["Got Player Data","BLACK FADED"];
   0 cutFadeOut 9999999;
 
   player_cash = parseNumber (_this select 2);
@@ -21,7 +21,13 @@ CB_loadPlayer = {
   CONST(player_adminlevel,parseNumber (_this select 10));
   CONST(player_donorlevel,parseNumber (_this select 11));
 
+  [_this select 4] call CB_loadGear;
+
   session_done = true;
+
+  0 cutText ["","BLACK IN"];
+
+  player setPos (getMarkerPos "player_spawn");
 };
 
 CB_stripPlayer = {
@@ -44,13 +50,13 @@ CB_stripPlayer = {
 };
 
 CB_loadGear = {
-  _playerGear = param[0];
+  _gear = param[0];
   waitUntil {!(isNull (findDisplay 46))};
 
   _handle = [] spawn CB_stripPlayer;
   waitUntil {scriptDone _handle};
 
-  if(count _playerGear isEqualTo 0) then {
+  if(count _gear isEqualTo 0) then {
     _clothings = ["U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_stripped","U_C_Poloshirt_tricolour","U_C_Poloshirt_salmon","U_C_Poloshirt_redwhite","U_C_Commoner1_1"];
     player addUniform (_clothings select (floor(random (count _clothings))));
 
@@ -62,7 +68,6 @@ CB_loadGear = {
     player addItem "ItemWatch";
     player assignItem "ItemWatch";
   } else {
-    _gear = _playerGear select 4;
     _uniform = _gear select 0;
     _vest = _gear select 1;
     _backpack = _gear select 2;
@@ -121,10 +126,8 @@ CB_loadGear = {
             player addHandgunItem _x;
         };
     } forEach (_hItems);
-
   };
 };
-
 
 CB_saveGear = {
   private["_playerGear","_uniformItems","_uniformMags","_bagItems","_bagMags","_vestItems","_vestMags"];

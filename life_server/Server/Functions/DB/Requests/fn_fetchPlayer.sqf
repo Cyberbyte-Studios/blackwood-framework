@@ -12,7 +12,7 @@ _result = [_query,2] call DB_fnc_asyncCall;
 
 diag_log "------------- Fetch Player Request -------------";
 diag_log format["QUERY: %1",_query];
-diag_log format["Time to complete: %1 (in seconds)",(diag_tickTime - _tickTime)];
+diag_log format["Time to complete: %1 (in seconds)",(diag_tickTime - _curTime)];
 diag_log format["Result: %1",_result];
 diag_log "------------------------------------------------";
 
