@@ -265,3 +265,29 @@ CB_saveGear = {
 
   [_playerGear, getPlayerUID player] remoteExec ["DB_fnc_updateGear", 2];
 };
+
+CB_initHud = {
+  disableSerialization;
+  2 cutRsc ["playerHUD","PLAIN"];
+  [] call CB_updateHud;
+
+  [] spawn
+  {
+  	private["_dam"];
+  	for "_i" from 0 to 1 step 0 do {
+  		_dam = damage player;
+  		waitUntil {(damage player) != _dam};
+  		[] call CB_updateHud;
+  	};
+  };
+
+};
+
+CB_updateHud = {
+  disableSerialization;
+  _display = uiNamespace getVariable ["playerHUD",displayNull];
+  if(isNull _display) then {[] call CB_initHud;};
+  _display displayCtrl 2200 progressSetPosition (1 / (100 / player_hunger));
+  _display displayCtrl 2201 progressSetPosition (1 - (damage player));
+  _display displayCtrl 2202 progressSetPosition (1 / (100 / player_thirst));
+};

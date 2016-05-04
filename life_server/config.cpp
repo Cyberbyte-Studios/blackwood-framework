@@ -37,6 +37,8 @@ class CfgFunctions {
       file = "\life_server\Client\Functions\Core";
       class init {};
       class initVar {};
+      class loops {};
+      class econ {};        
     };
 
     class Player {

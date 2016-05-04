@@ -17,7 +17,7 @@ publicVariable "CB_Function";
 	_color = _this select 1;
 	_i = 0;
 
-	_title = "<t align = 'center' shadow = '1' size='1.3' font='PuristaBold'>Frostbite RP<br />NOTIFICATION SYSTEM</t>";
+	_title = "<t align = 'center' shadow = '1' size='1.3' font='PuristaBold'>FROSTBITE RP<br />NOTIFICATION SYSTEM</t>";
 	_new = "<br /><br /><t align = 'center' shadow = '1' size='1' font='PuristaBold'>LATEST NOTIFICATIONS</t>";
 
 	_final = "";
@@ -46,3 +46,5 @@ publicVariable "CB_fnc_init";
 publicVariable "CB_fnc_initVar";
 publicVariable "CB_fnc_player";
 publicVariable "CB_fnc_notification";
+publicVariable "CB_fnc_loops";
+publicVariable "CB_fnc_econ";
