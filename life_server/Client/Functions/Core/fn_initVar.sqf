@@ -8,3 +8,8 @@ CB_Green = "#009933";
 player_hunger = 100;
 player_thirst = 100;
 player setVariable ["cuffed", false, true];
+
+CB_plantTypes = [
+	"CB_Olive",
+	"CB_Poppy"
+];

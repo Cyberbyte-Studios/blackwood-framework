@@ -31,6 +31,15 @@ class CfgFunctions {
     };
 	};
 
+  class Server {
+      tag = "SRV";
+      class Farming {
+        file = "\life_server\Server\Farming";
+        class plantSeed {};
+        class growthLoop {};
+      };
+  };
+
   class CyberByte {
     tag = "CB";
     class Core {
@@ -38,7 +47,7 @@ class CfgFunctions {
       class init {};
       class initVar {};
       class loops {};
-      class econ {};        
+      class econ {};
     };
 
     class Player {

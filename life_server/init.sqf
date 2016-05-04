@@ -34,5 +34,13 @@ if(server_extDB_Error isEqualType []) exitWith {};
 
 [] call compile PreProcessFileLineNumbers "\life_server\functions.sqf";
 
+CB_plantTypes = [
+	"CB_Olive",
+	"CB_Poppy"
+];
+CB_plants = [];
+
 server_isReady = true;
 publicVariable "server_isReady";
+
+[] spawn SRV_fnc_growthLoop;
