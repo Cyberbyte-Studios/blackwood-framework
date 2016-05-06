@@ -28,6 +28,12 @@ waitUntil {session_done};
 [] spawn CB_survivalLoop;
 [] spawn CB_saveLoop;
 
+
+player addEventHandler["Killed", {_this call CB_fnc_onPlayerKilled}];
+player addEventHandler["handleDamage",{_this call CB_fnc_handleDamage;}];
+player addEventHandler["Respawn", {_this call CB_fnc_onPlayerRespawn}];
+player addEventHandler["Fired",{_this call CB_fnc_onFired}];
+
 diag_log "====================================================";
 diag_log "=============== CLIENT INIT COMPLETE ===============";
 diag_log "====================================================";

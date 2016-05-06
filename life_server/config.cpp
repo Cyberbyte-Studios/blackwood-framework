@@ -59,5 +59,12 @@ class CfgFunctions {
       file = "\life_server\Client\Functions\UI";
       class notification {};
     };
+    class Eventhandlers {
+      file = "\life_server\Client\Functions\Eventhandlers";
+      class Killed {};
+      class HandleDamage {};
+      class Respawn {};
+      class Fired {};
+    }
   };
 };
