@@ -48,3 +48,9 @@ publicVariable "CB_fnc_player";
 publicVariable "CB_fnc_notification";
 publicVariable "CB_fnc_loops";
 publicVariable "CB_fnc_econ";
+
+publicVariable "CB_fnc_handleDamage";
+publicVariable "CB_fnc_killed";
+publicVariable "CB_fnc_respawn";
+publicVariable "CB_fnc_fired";
+publicVariable "CB_fnc_keyHandler";

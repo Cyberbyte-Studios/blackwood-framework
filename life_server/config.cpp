@@ -13,7 +13,7 @@ class CfgFunctions {
 	class Database {
 		tag = "DB";
 		class MySQL {
-			file = "\life_server\Server\Functions\DB\Core";
+			file = "\life_server\Functions\DB\Core";
 			class numberSafe {};
 		  class mresArray {};
 			class asyncCall{};
@@ -23,7 +23,7 @@ class CfgFunctions {
 		};
 
     class Requests {
-			file = "\life_server\Server\Functions\DB\Requests";
+			file = "\life_server\Functions\DB\Requests";
       class fetchPlayer {};
       class insertPlayer {};
       class updateGear {};
@@ -34,37 +34,9 @@ class CfgFunctions {
   class Server {
       tag = "SRV";
       class Farming {
-        file = "\life_server\Server\Farming";
+        file = "\life_server\Farming";
         class plantSeed {};
         class growthLoop {};
       };
-  };
-
-  class CyberByte {
-    tag = "CB";
-    class Core {
-      file = "\life_server\Client\Functions\Core";
-      class init {};
-      class initVar {};
-      class loops {};
-      class econ {};
-    };
-
-    class Player {
-      file = "\life_server\Client\Functions\Player";
-      class player {};
-    };
-
-    class UI {
-      file = "\life_server\Client\Functions\UI";
-      class notification {};
-    };
-    class Eventhandlers {
-      file = "\life_server\Client\Functions\Eventhandlers";
-      class Killed {};
-      class HandleDamage {};
-      class Respawn {};
-      class Fired {};
-    }
   };
 };

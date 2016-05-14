@@ -32,8 +32,6 @@ if(isNil {uiNamespace getVariable "server_sql_id"}) then {
 
 if(server_extDB_Error isEqualType []) exitWith {};
 
-[] call compile PreProcessFileLineNumbers "\life_server\functions.sqf";
-
 CB_plantTypes = [
 	"CB_Olive",
 	"CB_Poppy"

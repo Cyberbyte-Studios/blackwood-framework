@@ -17,19 +17,19 @@ class playerHUD {
     onLoad = "uiNamespace setVariable ['playerHUD',_this select 0]";
     objects[] = {};
     controls[] = {
-        Life_RscBackground_HUD,
-        Life_RscBackground_HUD1,
-        Life_RscBackground_HUD2,
-        Life_RscProgress_HUDFood,
-        Life_RscProgress_HUDHealth,
-        Life_RscProgress_HUDWater,
-        Life_RscPicture_HUDHealth,
-        Life_RscPicture_HUDFood,
-        Life_RscPicture_HUDWater
+        CB_RscBackground_HUD,
+        CB_RscBackground_HUD1,
+        CB_RscBackground_HUD2,
+        CB_RscProgress_HUDFood,
+        CB_RscProgress_HUDHealth,
+        CB_RscProgress_HUDWater,
+        CB_RscPicture_HUDHealth,
+        CB_RscPicture_HUDFood,
+        CB_RscPicture_HUDWater
     };
 
     /* Background */
-    class Life_RscBackground_HUD : Life_RscBackground {
+    class CB_RscBackground_HUD : CB_RscBackground {
         colorBackground[] = {0,0,0,0.35};
         x = 0.938281 * safezoneW + safezoneX;
         y = 0.852 * safezoneH + safezoneY;
@@ -37,7 +37,7 @@ class playerHUD {
         h = 0.121 * safezoneH;
     };
 
-    class Life_RscBackground_HUD1 : Life_RscBackground {
+    class CB_RscBackground_HUD1 : CB_RscBackground {
         colorBackground[] = {0,0,0,0.35};
         x = 0.9125 * safezoneW + safezoneX;
         y = 0.852 * safezoneH + safezoneY;
@@ -45,7 +45,7 @@ class playerHUD {
         h = 0.121 * safezoneH;
     };
 
-    class Life_RscBackground_HUD2 : Life_RscBackground {
+    class CB_RscBackground_HUD2 : CB_RscBackground {
         colorBackground[] = {0,0,0,0.35};
         x = 0.964063 * safezoneW + safezoneX;
         y = 0.852 * safezoneH + safezoneY;
@@ -54,7 +54,7 @@ class playerHUD {
     };
 
     /* Progress Bars */
-    class LIFE_RscProgress_HUDCommon : Life_RscProgressbar {
+    class CB_RscProgress_HUDCommon : CB_RscProgress {
         colorFrame[] = {0, 0, 0, 0.8};
         colorBackground[] = {0,0,0,0.7};
         y = 0.972223 * safezoneH + safezoneY;
@@ -62,7 +62,7 @@ class playerHUD {
         h = 0.0222222 * safezoneH;
     };
 
-    class Life_RscProgress_HUDFood : LIFE_RscProgress_HUDCommon {
+    class CB_RscProgress_HUDFood : CB_RscProgress_HUDCommon {
         idc = 2200;
         colorBar[] = {0,0.84,0.14,0.7};
         x = 0.938281 * safezoneW + safezoneX;
@@ -71,7 +71,7 @@ class playerHUD {
         h = 0.121 * safezoneH;
     };
 
-    class Life_RscProgress_HUDHealth : LIFE_RscProgress_HUDCommon {
+    class CB_RscProgress_HUDHealth : CB_RscProgress_HUDCommon {
         idc = 2201;
         colorBar[] = {0.78,0.07,0.22,0.9};
         x = 0.9125 * safezoneW + safezoneX;
@@ -81,7 +81,7 @@ class playerHUD {
     };
 
 
-    class Life_RscProgress_HUDWater : LIFE_RscProgress_HUDCommon {
+    class CB_RscProgress_HUDWater : CB_RscProgress_HUDCommon {
         idc = 2202;
         colorBar[] = {0.07,0.43,0.95,0.9};
         x = 0.964063 * safezoneW + safezoneX;
@@ -91,7 +91,7 @@ class playerHUD {
         };
 
     /* Picture */
-    class Life_RscPicture_HUDCommon : Life_RscPicture {
+    class CB_RscPicture_HUDCommon : CB_RscPicture {
         SizeEx = 0.023;
         style = 48;
         colorBackground[] = {0,0,0,0.8};
@@ -100,7 +100,7 @@ class playerHUD {
         h = 0.033 * safezoneH;
     };
 
-    class Life_RscPicture_HUDHealth : Life_RscPicture_HUDCommon {
+    class CB_RscPicture_HUDHealth : CB_RscPicture_HUDCommon {
         idc = 1200;
         text = "icons\health.paa";
         x = 0.9125 * safezoneW + safezoneX;
@@ -110,7 +110,7 @@ class playerHUD {
     };
 
     /* Picture 2 */
-    class Life_RscPicture_HUD1Common : Life_RscPicture {
+    class CB_RscPicture_HUD1Common : CB_RscPicture {
         SizeEx = 0.023;
         style = 48;
         colorBackground[] = {0,0,0,0.8};
@@ -119,14 +119,14 @@ class playerHUD {
         h = 0.033 * safezoneH;
     };
 
-    class Life_RscPicture_HUDFood : Life_RscPicture_HUD1Common {
+    class CB_RscPicture_HUDFood : CB_RscPicture_HUD1Common {
         idc = 1201;
         text = "icons\food.paa";
         x = 0.938281 * safezoneW + safezoneX;
     };
 
     /* Picture 3 */
-    class Life_RscPicture_HUD2Common : Life_RscPicture {
+    class CB_RscPicture_HUD2Common : CB_RscPicture {
         SizeEx = 0.023;
         style = 48;
         colorBackground[] = {0,0,0,0.8};
@@ -135,7 +135,7 @@ class playerHUD {
         h = 0.033 * safezoneH;
     };
 
-    class Life_RscPicture_HUDWater : Life_RscPicture_HUD2Common {
+    class CB_RscPicture_HUDWater : CB_RscPicture_HUD2Common {
         idc = 1202;
         text = "icons\water.paa";
         x = 0.964063 * safezoneW + safezoneX;

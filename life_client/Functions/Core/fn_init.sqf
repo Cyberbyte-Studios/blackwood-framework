@@ -25,6 +25,11 @@ waitUntil {session_done};
 [] call CB_initHud;
 ["Hud Setup", CB_Green] call CB_MessageSystem;
 
+waitUntil {!(isNull (findDisplay 46))};
+
+diag_log "Display 46 Found";
+(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call CB_fnc_keyHandler"];
+
 [] spawn CB_survivalLoop;
 [] spawn CB_saveLoop;
 

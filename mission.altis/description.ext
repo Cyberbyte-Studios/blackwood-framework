@@ -4,5 +4,5 @@ disabledAI=1;
 #include "diag\handler.hpp"
 
 class RscTitles {
-	#include "diag\hud.hpp"
+	#include "dialogs\ui.hpp"
 };

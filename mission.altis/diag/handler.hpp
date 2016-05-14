@@ -1,1 +1,7 @@
 #include "common.hpp"
+#include "shop.hpp"
+#include "shopClothing.hpp"
+#include "shopVehicle.hpp"
+#include "shopWeapons.hpp"
+#include "spawn.hpp"
+#include "hud.hpp"
