@@ -1,14 +1,5 @@
 #define EQUAL(condition1,condition2) condition1 isEqualTo condition2
-#define RIFLE primaryWeapon player
-#define RIFLE_ITEMS primaryWeaponItems player
-#define PISTOL handgunWeapon player
-#define PISTOL_ITEMS handgunItems player
-#define LAUNCHER secondaryWeapon player
-#define CONFIG_VEHICLES "CfgVehicles"
-#define CONFIG_LIFE_VEHICLES "LifeCfgVehicles"
-#define CONFIG_WEAPONS "CfgWeapons"
-#define CONFIG_MAGAZINES "CfgMagazines"
-#define CONFIG_GLASSES "CfgGlasses"
+#define SEL(ARRAY,INDEX) (ARRAY select INDEX)
 
 [] call CB_fnc_KRON;
 
@@ -37,10 +28,10 @@ CB_fetchCFG = {
 
   if(EQUAL(_section,"")) then {
   	_section = switch(true) do {
-  		case (isClass(configFile >> CONFIG_MAGAZINES >> _className)): {CONFIG_MAGAZINES};
-  		case (isClass(configFile >> CONFIG_WEAPONS >> _className)): {CONFIG_WEAPONS};
-  		case (isClass(configFile >> CONFIG_VEHICLES >> _className)): {CONFIG_VEHICLES};
-  		case (isClass(configFile >> CONFIG_GLASSES >> _className)): {CONFIG_GLASSES};
+  		case (isClass(configFile >> "CfgMagazines" >> _className)): {"CfgMagazines"};
+  		case (isClass(configFile >> "CfgWeapons" >> _className)): {"CfgWeapons"};
+  		case (isClass(configFile >> "CfgVehicles" >> _className)): {"CfgVehicles"};
+  		case (isClass(configFile >> "CfgGlasses" >> _className)): {"CfgGlasses"};
   	};
   };
 
@@ -53,12 +44,12 @@ CB_fetchCFG = {
 
   switch (_section) do
   {
-  	case CONFIG_VEHICLES: {
+  	case "CfgVehicles": {
   		_type = getText(_config >> "vehicleClass");
   		_scope = getNumber(_config >> "scope");
   	};
 
-  	case CONFIG_WEAPONS: {
+  	case "CfgWeapons": {
   		_scope = getNumber(_config >> "scope");
   		_type = getNumber(_config >> "type");
   		_desc = getText(_config >> "descriptionshort");
@@ -99,7 +90,7 @@ CB_fetchCFG = {
   		};
   	};
 
-  	case CONFIG_MAGAZINES: {
+  	case "CfgMagazines": {
   		_scope = getNumber(_config >> "scope");
   	};
   };
@@ -132,15 +123,15 @@ CB_removeGear = {
   if(EQUAL(count _details,0)) exitWith {};
 
 	switch(SEL(_details,6)) do {
-		case CONFIG_VEHICLES: {
+		case "CfgVehicles": {
 			removeBackpack player;
 		};
 
-		case CONFIG_MAGAZINES: {
+		case "CfgMagazines": {
 			player removeMagazine _item;
 		};
 
-		case CONFIG_GLASSES: {
+		case "CfgGlasses": {
 			if(EQUAL(_item,goggles player)) then {
 				removeGoggles player;
 			} else {
@@ -148,7 +139,7 @@ CB_removeGear = {
 			};
 		};
 
-		case CONFIG_WEAPONS: {
+		case "CfgWeapons": {
 			if(SEL(_details,4) in [1,2,4,5,4096]) then {
 				if(EQUAL(SEL(_details,4),4096)) then {
 					if(EQUAL(SEL(_details,5),1)) then {
@@ -161,9 +152,9 @@ CB_removeGear = {
 
 			if(_isgun) then {
 				switch(true) do {
-					case (EQUAL(RIFLE,_item)) : {_ispack = false;};
-					case (EQUAL(LAUNCHER,_item)) : {_ispack = false;};
-					case (EQUAL(PISTOL,_item)) : {_ispack = false;};
+					case (EQUAL(primaryWeapon player,_item)) : {_ispack = false;};
+					case (EQUAL(secondaryWeapon player,_item)) : {_ispack = false;};
+					case (EQUAL(handgunWeapon player,_item)) : {_ispack = false;};
 					case (_item in assignedItems player) : {_ispack = false;};
 					default {_ispack = true;};
 				};
@@ -244,8 +235,8 @@ CB_removeGear = {
 					case 616: {player unassignItem _item; player removeItem _item;};
 					default {
 						switch (true) do {
-							case (_item in RIFLE_ITEMS) : {player removePrimaryWeaponItem _item;};
-							case (_item in PISTOL_ITEMS) : {player removeHandgunItem _item;};
+							case (_item in primaryWeaponItems player) : {player removePrimaryWeaponItem _item;};
+							case (_item in handgunItems player) : {player removeHandgunItem _item;};
 							default {player removeItem _item;};
 						};
 					};
