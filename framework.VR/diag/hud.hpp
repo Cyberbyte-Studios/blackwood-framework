@@ -17,6 +17,7 @@ class playerHUD {
     onLoad = "uiNamespace setVariable ['playerHUD',_this select 0]";
     objects[] = {};
     controls[] = {
+        watermark,
         CB_RscBackground_HUD,
         CB_RscBackground_HUD1,
         CB_RscBackground_HUD2,
@@ -102,7 +103,7 @@ class playerHUD {
 
     class CB_RscPicture_HUDHealth : CB_RscPicture_HUDCommon {
         idc = 1200;
-        text = "icons\health.paa";
+        text = "gfx\icons\health.paa";
         x = 0.9125 * safezoneW + safezoneX;
         y = 0.918 * safezoneH + safezoneY;
         w = 0.020625 * safezoneW;
@@ -121,7 +122,7 @@ class playerHUD {
 
     class CB_RscPicture_HUDFood : CB_RscPicture_HUD1Common {
         idc = 1201;
-        text = "icons\food.paa";
+        text = "gfx\icons\food.paa";
         x = 0.938281 * safezoneW + safezoneX;
     };
 
@@ -135,9 +136,18 @@ class playerHUD {
         h = 0.033 * safezoneH;
     };
 
+    class watermark: CB_RscPicture {
+    	idc = 1337;
+    	text = "gfx\icons\logo.paa";
+    	x = 0.391719 * safezoneW + safezoneX;
+    	y = -0.072 * safezoneH + safezoneY;
+    	w = 0.211406 * safezoneW;
+    	h = 0.253 * safezoneH;
+    };
+
     class CB_RscPicture_HUDWater : CB_RscPicture_HUD2Common {
         idc = 1202;
-        text = "icons\water.paa";
+        text = "gfx\icons\water.paa";
         x = 0.964063 * safezoneW + safezoneX;
     };
 };

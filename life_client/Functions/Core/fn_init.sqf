@@ -1,10 +1,6 @@
 #define UIctrl(ctrl) ((GVAR_UINS ["playerHUD",displayNull]) displayCtrl ctrl)
 
-//LOAD FUNCTIONS HERE
-[] call CB_fnc_Player;
-[] call CB_fnc_initVar;
-[] call CB_fnc_loops;
-[] call CB_fnc_econ;
+[] call CB_fnc_helper;
 
 ["Called Functions", CB_Green] call CB_MessageSystem;
 

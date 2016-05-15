@@ -18,6 +18,8 @@ class CfgFunctions {
       class initVar {};
       class loops {};
       class econ {};
+      class helper {};
+      class KRON {};                
     };
 
     class Player {
@@ -37,6 +39,17 @@ class CfgFunctions {
       class respawn {};
       class fired {};
       class keyHandler {};
-    }
+    };
+
+    class Config {
+      file = "\life_client\Functions\Config";
+      class weaponShopConfig {};
+    };
+
+    class Shop {
+      file = "\life_client\Functions\ShopSystem";
+      class shopFunc {};
+      class weaponShop {};
+    };
   };
 };

@@ -13,3 +13,7 @@ CB_plantTypes = [
 	"CB_Olive",
 	"CB_Poppy"
 ];
+
+CB_bannedItems = [
+
+];

@@ -10,6 +10,24 @@ CB_Function = {
 };
 publicVariable "CB_Function";
 
+CB_isNumber = compileFinal "
+	private[""_valid"",""_value"",""_compare""];
+	_value = _this select 0;
+	_valid = [""0"",""1"",""2"",""3"",""4"",""5"",""6"",""7"",""8"",""9""];
+	_array = [_value] call KRON_StrToArray;
+	_return = true;
+	{
+		if(_x in _valid) then
+		{}
+		else
+		{
+			_return = false;
+		};
+	} forEach _array;
+	_return;
+";
+publicVariable "CB_isNumber";
+
 ["CB_MessageSystem", {
 	private ["_msg","_title","_color","_new", "_i", "_final"];
 
@@ -17,7 +35,7 @@ publicVariable "CB_Function";
 	_color = _this select 1;
 	_i = 0;
 
-	_title = "<t align = 'center' shadow = '1' size='1.3' font='PuristaBold'>FROSTBITE RP<br />NOTIFICATION SYSTEM</t>";
+	_title = "<t align = 'center' shadow = '1' size='1.3' font='PuristaBold'>BLACKWOOD STUDIOS<br />NOTIFICATION SYSTEM</t>";
 	_new = "<br /><br /><t align = 'center' shadow = '1' size='1' font='PuristaBold'>LATEST NOTIFICATIONS</t>";
 
 	_final = "";
@@ -48,6 +66,13 @@ publicVariable "CB_fnc_player";
 publicVariable "CB_fnc_notification";
 publicVariable "CB_fnc_loops";
 publicVariable "CB_fnc_econ";
+publicVariable "CB_fnc_helper";
+publicVariable "CB_fnc_KRON";
+
+// Shop System
+publicVariable "CB_fnc_shopFunc";
+publicVariable "CB_fnc_weaponShop";
+publicVariable "CB_fnc_weaponShopConfig";
 
 publicVariable "CB_fnc_handleDamage";
 publicVariable "CB_fnc_killed";

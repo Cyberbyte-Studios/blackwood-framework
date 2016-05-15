@@ -1,4 +1,4 @@
-#include "life_client\script_macros.hpp"
+#define SEL(ARRAY,INDEX) (ARRAY select INDEX)
 private ["_handled","_shift","_alt","_code","_ctrl","_alt","_ctrlKey","_veh","_locked","_interactionKey","_mapKey","_interruptionKeys"];
 _ctrl = SEL(_this,0);
 _code = SEL(_this,1);
