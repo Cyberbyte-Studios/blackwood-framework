@@ -99,22 +99,18 @@ CREATE TABLE IF NOT EXISTS `players` (
 
 CREATE TABLE IF NOT EXISTS `vehicles` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
-  `side` varchar(16) NOT NULL,
   `classname` varchar(64) NOT NULL,
   `type` varchar(16) NOT NULL,
   `pid` varchar(32) NOT NULL,
   `alive` tinyint(1) NOT NULL DEFAULT '1',
-  `blacklist` tinyint(1) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `plate` int(20) NOT NULL,
   `color` int(20) NOT NULL,
-  `inventory` text NOT NULL,
   `gear` text NOT NULL,
   `fuel` double NOT NULL DEFAULT '1',
   `damage` varchar(256) NOT NULL,
   `insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY `side` (`side`),
   KEY `pid` (`pid`),
   KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;

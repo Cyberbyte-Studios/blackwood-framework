@@ -60,8 +60,8 @@ CB_loadGear = {
     player addUniform (_clothings select (floor(random (count _clothings))));
 
     /* ITEMS */
-    player addItem "ItemMap";
-    player assignItem "ItemMap";
+    player addItem "BS_Wallet_01";
+    player assignItem "BS_Wallet_01";
     player addItem "ItemCompass";
     player assignItem "ItemCompass";
     player addItem "ItemWatch";
@@ -263,7 +263,7 @@ CB_saveGear = {
   _playerGear pushBack _pItems;
   _playerGear pushBack _hItems;
 
-  [_playerGear, getPlayerUID player] remoteExec ["DB_fnc_updateGear", 2];
+  [getPlayerUID player, 3, _playerGear] remoteExec ["DB_fnc_partialSync", 2];
 };
 
 CB_initHud = {
