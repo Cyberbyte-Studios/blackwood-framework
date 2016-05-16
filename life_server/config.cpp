@@ -26,8 +26,7 @@ class CfgFunctions {
 			file = "\life_server\Functions\DB\Requests";
       class fetchPlayer {};
       class insertPlayer {};
-      class updateGear {};
-
+      class partialSync {};
     };
 	};
 
@@ -37,6 +36,9 @@ class CfgFunctions {
         file = "\life_server\Farming";
         class plantSeed {};
         class growthLoop {};
+      };
+      class Shops {
+        class vehicleBuy {};
       };
   };
 };

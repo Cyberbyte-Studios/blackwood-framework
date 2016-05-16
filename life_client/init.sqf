@@ -73,6 +73,8 @@ publicVariable "CB_fnc_KRON";
 publicVariable "CB_fnc_shopFunc";
 publicVariable "CB_fnc_weaponShop";
 publicVariable "CB_fnc_weaponShopConfig";
+publicVariable "CB_fnc_vehicleShopConfig";
+publicVariable "CB_fnc_vehicleShop";
 
 publicVariable "CB_fnc_handleDamage";
 publicVariable "CB_fnc_killed";

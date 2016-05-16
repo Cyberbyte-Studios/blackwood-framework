@@ -8,6 +8,7 @@
 [] call CB_fnc_loops;
 [] call CB_fnc_econ;
 [] call CB_fnc_weaponShopConfig;
+[] call CB_fnc_vehicleShopConfig;
 
 CB_fetchCFG = {
   private["_className","_section","_type","_accPointer","_accMuzzle","_accOptic","_classes","_itemInfo","_magazines","_scope","_config","_displayName"];

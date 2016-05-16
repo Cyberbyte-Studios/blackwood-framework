@@ -19,7 +19,7 @@ class CfgFunctions {
       class loops {};
       class econ {};
       class helper {};
-      class KRON {};                
+      class KRON {};
     };
 
     class Player {
@@ -44,11 +44,12 @@ class CfgFunctions {
     class Config {
       file = "\life_client\Functions\Config";
       class weaponShopConfig {};
+      class vehicleShopConfig {};        
     };
 
     class Shop {
       file = "\life_client\Functions\ShopSystem";
-      class shopFunc {};
+      class vehicleShop {};
       class weaponShop {};
     };
   };
