@@ -44,13 +44,15 @@ class CfgFunctions {
     class Config {
       file = "\life_client\Functions\Config";
       class weaponShopConfig {};
-      class vehicleShopConfig {};        
+      class vehicleShopConfig {};
+      class licenseConfig {};
     };
 
     class Shop {
       file = "\life_client\Functions\ShopSystem";
       class vehicleShop {};
       class weaponShop {};
+      class license {};
     };
   };
 };

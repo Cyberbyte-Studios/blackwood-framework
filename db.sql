@@ -7,6 +7,7 @@ CREATE TABLE `players` (
   `gear` text NOT NULL,
   `vgear` text NOT NULL,
   `licenses` text NOT NULL,
+  `education` text NOT NULL,  
   `arrested` tinyint(1) NOT NULL DEFAULT '0',
   `coplevel` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0',
   `mediclevel` enum('0','1','2','3','4','5') NOT NULL DEFAULT '0',

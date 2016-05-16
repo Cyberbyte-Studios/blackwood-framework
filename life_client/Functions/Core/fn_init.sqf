@@ -7,7 +7,7 @@
 ["Called Functions", CB_Green] call CB_MessageSystem;
 
 diag_log "===================================================";
-diag_log "========== CyberByte Studios Client Init ==========";
+diag_log "========== Blackwood Studios Client Init ==========";
 diag_log "===================================================";
 
 diag_log "::Life Client:: Waiting for the server to be ready..";

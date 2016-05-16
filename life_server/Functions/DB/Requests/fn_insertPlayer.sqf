@@ -33,7 +33,7 @@ _money = [_money] call DB_fnc_numberSafe;
 _bank = [_bank] call DB_fnc_numberSafe;
 
 //Prepare the query statement..
-_query = format["INSERT INTO players (pid, name, cash, bank, gear, vgear, licenses) VALUES('%1', '%2', '%3', '%4', '""[]""','""[]""','""[]""')", _uid, _name, _money, _bank];
+_query = format["INSERT INTO players (pid, name, cash, bank, gear, vgear, licenses, education) VALUES('%1', '%2', '%3', '%4', '""[]""','""[]""','""[]""','""[]""')", _uid, _name, _money, _bank];
 
 [_query,1] call DB_fnc_asyncCall;
 [] remoteExecCall ["CB_fetchPlayer",(owner _returnToSender)];

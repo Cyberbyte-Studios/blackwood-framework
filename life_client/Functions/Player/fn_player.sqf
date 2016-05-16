@@ -1,4 +1,5 @@
 #define CONST(var1,var2) var1 = compileFinal (if(var2 isEqualType "") then {var2} else {str(var2)})
+#define SEL(ARRAY,INDEX) (ARRAY select INDEX)
 
 CB_insertPlayer = {
   [getPlayerUID player, profileName, 0, 60000, player] remoteExecCall ["DB_fnc_insertPlayer", 2];
@@ -20,6 +21,13 @@ CB_loadPlayer = {
   CONST(player_mediclevel,parseNumber (_this select 9));
   CONST(player_adminlevel,parseNumber (_this select 10));
   CONST(player_donorlevel,parseNumber (_this select 11));
+
+  if (count (SEL(_this,6)) > 0) then {
+    {missionNamespace setVariable [SEL(_x,0),SEL(_x,1)];} forEach (SEL(_this,6));
+  };
+  if (count (SEL(_this,12)) > 0) then {
+    {missionNamespace setVariable [SEL(_x,0),SEL(_x,1)];} forEach (SEL(_this,12));
+  };
 
   [_this select 4] call CB_loadGear;
 

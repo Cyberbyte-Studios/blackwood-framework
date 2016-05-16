@@ -1,4 +1,5 @@
 CB_Messages = [];
+CB_Keys = [];
 CB_White = "#F0F0F0";
 CB_Red = "#bd0707";
 CB_Blue = "#0033CC";

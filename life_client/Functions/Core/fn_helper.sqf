@@ -9,6 +9,8 @@
 [] call CB_fnc_econ;
 [] call CB_fnc_weaponShopConfig;
 [] call CB_fnc_vehicleShopConfig;
+[] call CB_fnc_licenseConfig;
+[] call CB_fnc_license;
 
 CB_fetchCFG = {
   private["_className","_section","_type","_accPointer","_accMuzzle","_accOptic","_classes","_itemInfo","_magazines","_scope","_config","_displayName"];
@@ -263,4 +265,12 @@ CB_numberText = {
       if ((_foreachindex - _modBase) % (_mod) == 0 && _foreachindex != _digitsCount) then {_numberText = _numberText + ",";};
   } forEach _digits;
   _numberText;
+};
+
+CB_addToKeys = {
+  private ["_veh"];
+  params[["_veh", objNull, [objNull]]];
+  if (!(_veh in CB_Keys)) then {
+    CB_Keys pushBack _veh;
+  };
 };

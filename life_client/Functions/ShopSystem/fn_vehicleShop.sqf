@@ -89,7 +89,12 @@ CB_buySelected = {
   _vehicle setPos (getMarkerPos CB_spawnPoint);
   _vehicle setVectorUp (surfaceNormal (getMarkerPos CB_spawnPoint));
   _vehicle setDir (markerDir _spawnPoint);
+  _owners = [];
+  _owners pushBack (getPlayerUID player);
+  _vehicle setVariable ["veh_Owner", _owners, true]
   _vehicle lock 2;
+
+  [_vehicle] call CB_addToKeys;
 
 	if (_save) then {
       [_class, getPlayerUID player] remoteExec ["SRV_fnc_vehicleBuy", 2];

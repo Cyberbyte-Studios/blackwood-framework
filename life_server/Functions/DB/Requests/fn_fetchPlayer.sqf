@@ -4,8 +4,8 @@ _ownerID = [_this,1,ObjNull,[ObjNull]] call BIS_fnc_param;
 if(isNull _ownerID) exitWith {diag_log "DUCKS ARE NULL";};
 _ownerID = owner _ownerID;
 
-										//    0,    1,    2,    3,    4,     5,        6,        7,     8,        9,        10,       11
-_query = format["SELECT pid, name, cash, bank, gear, vgear, licenses, arrested, coplevel, mediclevel, adminlevel, donorlevel FROM players WHERE pid='%1'", _uid];
+										//    0,    1,    2,    3,    4,     5,        6,        7,     8,        9,        10,       11           12
+_query = format["SELECT pid, name, cash, bank, gear, vgear, licenses, arrested, coplevel, mediclevel, adminlevel, donorlevel, education FROM players WHERE pid='%1'", _uid];
 
 _curTime = diag_tickTime;
 _result = [_query,2] call DB_fnc_asyncCall;
@@ -49,6 +49,18 @@ for "_i" from 0 to (count _old)-1 do {
 	_old set[_i,[_data select 0, ([_data select 1,1] call DB_fnc_bool)]];
 };
 _result set[6,_old];
+
+//licenses
+_new = [(_result select 12)] call DB_fnc_mresToArray;
+if(_new isEqualType "") then {_new = call compile format["%1", _new];};
+_result set[12,_new];
+
+_old = _result select 12;
+for "_i" from 0 to (count _old)-1 do {
+	_data = _old select _i;
+	_old set[_i,[_data select 0, ([_data select 1,1] call DB_fnc_bool)]];
+};
+_result set[12,_old];
 
 //Arrested?
 _result set[7,([_result select 7,1] call DB_fnc_bool)];
