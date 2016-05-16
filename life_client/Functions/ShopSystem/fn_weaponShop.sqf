@@ -273,10 +273,11 @@ CB_sellSelected = {
 	_itemName = getText(configFile >> "CfgWeapons" >> _item >> "DisplayName");
 	if (_itemName == "") then { _itemName = getText(configFile >> "CfgMagazines" >> _item >> "DisplayName"); };
 
+  systemChat format["I WANT TO SELL: %1", _count];
 	if (_count < _sellCount) exitWith { [format["You do not have that amount of %1's", _itemName], CB_Red] call CB_MessageSystem;};
 
+  _price = ([_item] call CB_weaponItems) * _sellCount;
 
-	_price = ([_item] call CB_weaponItems) * _count;
 	hint format["You have sold %1 %2(s) for $%3", _sellCount, _itemName, ([_price] call CB_numberText)];
 
   _sellCount = _sellCount -1;
@@ -284,11 +285,11 @@ CB_sellSelected = {
     [_item] call CB_removeGear;
   };
 
-
 	ADD(player_cash, _price);
 
   [] call CB_sellList;
   [] call CB_saveGear;
+  [getPlayerUID player, 2, [player_cash, player_bank]] remoteExec ["DB_fnc_partialSync", 2];
 };
 
 CB_buySelected = {
@@ -319,6 +320,7 @@ CB_buySelected = {
 
   [] call CB_sellList;
   [] call CB_saveGear;
+  [getPlayerUID player, 2, [player_cash, player_bank]] remoteExec ["DB_fnc_partialSync", 2];
 };
 
 CB_buySelectedItem = {
@@ -370,6 +372,7 @@ CB_buySelectedItem = {
 
  [] call CB_sellList;
  [] call CB_saveGear;
+ [getPlayerUID player, 2, [player_cash, player_bank]] remoteExec ["DB_fnc_partialSync", 2];
 };
 
 CB_boxThread = {
